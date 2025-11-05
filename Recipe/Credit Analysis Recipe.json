@@ -1,0 +1,161 @@
+[
+  {
+    "Action": {
+      "Operation": "SORT",
+      "Parameters": {
+        "expressions": "[{\"sourceColumn\":\"NAME\",\"ordering\":\"ASCENDING\",\"nullsOrdering\":\"NULLS_TOP\",\"customOrder\":[]}]"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REMOVE_DUPLICATES",
+      "Parameters": {
+        "sourceColumn": "NAME"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REMOVE_COMBINED",
+      "Parameters": {
+        "collapseConsecutiveWhitespace": "false",
+        "removeAllPunctuation": "false",
+        "removeAllQuotes": "false",
+        "removeAllWhitespace": "false",
+        "removeCustomCharacters": "false",
+        "removeCustomValue": "false",
+        "removeLeadingAndTrailingPunctuation": "false",
+        "removeLeadingAndTrailingQuotes": "false",
+        "removeLeadingAndTrailingWhitespace": "false",
+        "removeLetters": "false",
+        "removeNumbers": "false",
+        "removeSpecialCharacters": "true",
+        "sourceColumn": "NAME"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REMOVE_MISSING",
+      "Parameters": {
+        "sourceColumn": "NAME"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REMOVE_COMBINED",
+      "Parameters": {
+        "collapseConsecutiveWhitespace": "false",
+        "removeAllPunctuation": "false",
+        "removeAllQuotes": "false",
+        "removeAllWhitespace": "false",
+        "removeCustomCharacters": "false",
+        "removeCustomValue": "false",
+        "removeLeadingAndTrailingPunctuation": "false",
+        "removeLeadingAndTrailingQuotes": "false",
+        "removeLeadingAndTrailingWhitespace": "false",
+        "removeLetters": "false",
+        "removeNumbers": "true",
+        "removeSpecialCharacters": "false",
+        "sourceColumn": "NAME"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REMOVE_MISSING",
+      "Parameters": {
+        "sourceColumn": "GENDER"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REMOVE_MISSING",
+      "Parameters": {
+        "sourceColumn": "AGE"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "CHANGE_DATA_TYPE",
+      "Parameters": {
+        "columnDataType": "integer",
+        "sourceColumn": "AGE"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "CHANGE_DATA_TYPE",
+      "Parameters": {
+        "columnDataType": "integer",
+        "sourceColumn": "EMPLOYMENT_YEARS"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "CHANGE_DATA_TYPE",
+      "Parameters": {
+        "columnDataType": "integer",
+        "sourceColumn": "ANNUAL_INCOME"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "CHANGE_DATA_TYPE",
+      "Parameters": {
+        "columnDataType": "integer",
+        "sourceColumn": "CREDIT_LIMIT"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "CHANGE_DATA_TYPE",
+      "Parameters": {
+        "columnDataType": "integer",
+        "sourceColumn": "CURRENT_BALANCE"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REMOVE_MISSING",
+      "Parameters": {
+        "sourceColumn": "ANNUAL_INCOME"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "DIVIDE",
+      "Parameters": {
+        "functionStepType": "DIVIDE",
+        "sourceColumn1": "CURRENT_BALANCE",
+        "sourceColumn2": "CREDIT_LIMIT",
+        "targetColumn": "UTILIZATION"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REMOVE_VALUES",
+      "Parameters": {
+        "sourceColumn": "AGE"
+      }
+    },
+    "ConditionExpressions": [
+      {
+        "Condition": "IS_NOT_BETWEEN",
+        "Value": "{\"greaterThanEqual\":\"18\",\"lessThanEqual\":\"80\"}",
+        "TargetColumn": "AGE"
+      }
+    ]
+  }
+]
